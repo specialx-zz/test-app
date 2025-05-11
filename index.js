@@ -16,7 +16,8 @@ app.get('/api/videos', (req, res) => {
   ]);
 });
 
-app.get('*', (req, res) => {
+// ✅ 올바른 정규식 와일드카드 처리
+app.get(/^\/(?!api).*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
